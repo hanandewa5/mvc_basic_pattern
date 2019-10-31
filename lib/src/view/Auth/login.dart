@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mvc_basic_pattern/src/_globalWidgets/RaisedGradientButton.dart';
 import 'package:mvc_basic_pattern/src/controller/authController.dart';
+import 'package:mvc_basic_pattern/src/model/Auth/login_model.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 class Login extends StatefulWidget {
@@ -176,7 +177,9 @@ class _LoginState extends StateMVC<Login> {
                                           ],
                                         ),
                                         onPressed: () {
-                                          AuthController.login();
+                                          LoginModel.login("hanan@gmail.com", "nasdem121").then((value){
+                                            print(value);
+                                          });
                                         }),
                                   ),
                                   Center(
