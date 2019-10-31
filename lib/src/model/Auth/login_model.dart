@@ -17,7 +17,7 @@ class LoginModel {
     Map data = {"email": email, "password": password};
     var body = json.encode(data);
     var resApi = await http.post(urlApi,
-        body: body);
+        headers: {"Content-Type": "application/json"}, body: body);
     var jsonObject = json.decode(resApi.body);
     print("${resApi.statusCode}");
 

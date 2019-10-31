@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mvc_basic_pattern/src/_globalWidgets/RaisedGradientButton.dart';
 import 'package:mvc_basic_pattern/src/controller/authController.dart';
-import 'package:mvc_basic_pattern/src/model/Auth/login_model.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -12,6 +12,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends StateMVC<Login> {
   _LoginState() : super(AuthController());
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -177,9 +178,7 @@ class _LoginState extends StateMVC<Login> {
                                           ],
                                         ),
                                         onPressed: () {
-                                          LoginModel.login("hanan@gmail.com", "nasdem121").then((value){
-                                            print(value);
-                                          });
+                                          AuthController.login(context);
                                         }),
                                   ),
                                   Center(
