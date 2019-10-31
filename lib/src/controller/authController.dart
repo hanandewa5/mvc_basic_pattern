@@ -6,8 +6,8 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 class AuthController extends ControllerMVC {
   // var login = LoginModel.login("pass", "nasdem121");
   // static void doLogin = print("test");
-  static login(BuildContext context) async {
-    var resLogin = await LoginModel.login("hanan@gmail.com", "nasdem121");
+  static login(BuildContext context, String username, String password) async {
+    var resLogin = await LoginModel.login(username, password);
     Alert(context: context,type: AlertType.warning, title: "RFLUTTER", desc: resLogin.pesan, buttons: [
       DialogButton(
         child: Text(

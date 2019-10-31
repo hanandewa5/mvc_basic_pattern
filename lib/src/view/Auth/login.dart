@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:mvc_basic_pattern/src/_globalWidgets/RaisedGradientButton.dart';
 import 'package:mvc_basic_pattern/src/controller/authController.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -12,6 +11,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends StateMVC<Login> {
   _LoginState() : super(AuthController());
+  String username ="";
+  String password ="";
 
   @override
   Widget build(BuildContext context) {
@@ -111,6 +112,9 @@ class _LoginState extends StateMVC<Login> {
                                         padding: const EdgeInsets.only(
                                             left: 18.0, right: 18.0),
                                         child: TextField(
+                                          onChanged: (val){
+                                            username = val;
+                                          },
                                           decoration: InputDecoration(
                                               icon: Icon(
                                                 Icons.email,
@@ -134,6 +138,10 @@ class _LoginState extends StateMVC<Login> {
                                         padding: const EdgeInsets.only(
                                             left: 18.0, right: 18.0),
                                         child: TextField(
+                                          onChanged: (val){
+                                            password = val;
+                                          },
+                                          obscureText: true,
                                           decoration: InputDecoration(
                                               icon: Icon(
                                                 Icons.lock,
@@ -178,7 +186,9 @@ class _LoginState extends StateMVC<Login> {
                                           ],
                                         ),
                                         onPressed: () {
-                                          AuthController.login(context);
+                                          print(username);
+                                          print(password);
+                                          AuthController.login(context,username,password);
                                         }),
                                   ),
                                   Center(
